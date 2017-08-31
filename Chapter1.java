@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class Chapter1 {
     public static void main(String [] args) {
         // call the pertinent question
-        question6();
+        question7();
     }
 
     public static void question1() {
@@ -179,6 +179,33 @@ public class Chapter1 {
             frequency = x;
             character = y;
         }
+    }
+
+    public static void question7() {
+        int [ ] [ ] scores = {   { 20, 18, 22, 20 },
+                                 { 18, 20, 18, 21 },
+                                 { 16, 18, 16, 20 },
+                                 { 25, 24, 22, 24 }
+                             };
+
+        question7_execution(scores, 4);
+    }
+
+    public static void question7_execution(final int [][] matrix, final int n) {
+
+        for (int layer = 0; layer < n/2; layer++) {
+            int first = layer;
+            int last = n - 1 - first;
+
+            for (int offset = 0; offset < n - 1; offset++) {
+                int temp = matrix[first][first + offset];
+
+                matrix[first][first + offset] = matrix[last - offset][first];
+                matrix[last - offset][offset] = matrix[last][last - offset];
+                matrix[last][last - offset] = matrix[first + offset][last];
+                matrix[first + offset][last] = temp;
+            }
+       }
     }
 
     public static void question8() {
