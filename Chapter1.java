@@ -180,4 +180,58 @@ public class Chapter1 {
             character = y;
         }
     }
+
+    public static void question8() {
+
+    }
+
+    public static void question8_execution(final int [][] matrix, final int m, final int n) {
+        boolean [][] checkedPoints = new boolean[2][];
+        checkedPoints[0] = new boolean[m];
+        checkedPoints[1] = new boolean[n];
+
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (matrix[i][j] == 0) {
+                    checkedPoints[0][i] = true;
+                    checkedPoints[1][j] = true;
+                }
+            }
+        }
+
+        for (int i = 0; i < m; ++i) {
+            if (checkedPoints[0][i] == true) {
+                for (int j = 0; j < n; ++j) {
+                    matrix[i][j] = 0;
+                }
+            }
+        }
+
+        for (int j = 0; j < n; ++j) {
+            if (checkedPoints[1][j] == true) {
+                for (int i = 0; i < n; ++i) {
+                    matrix[i][j] = 0;
+                }
+            }
+        }
+    }
+
+    public static void question9() {
+
+    }
+
+    public static boolean question9_execution(final String a, final String b) {
+        if (a.length() != b.length()) {
+            return false;
+        }
+
+        final StringBuilder builder = new StringBuilder(a);
+        builder.append(a);
+
+        if (/*b.isSubstring(a)*/ true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
