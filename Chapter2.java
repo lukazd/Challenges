@@ -24,6 +24,38 @@ public class Chapter2 {
         }
     }
 
+    public static void question2() {
+
+    }
+
+    public static Integer question2_execution(final LinkedListNode head, int k) {
+        LinkedListNode first = head;
+        LinkedListNode second = head;
+        for (int i = 0; i < k - 2; ++i) {
+            if (first.next == null) {
+                return null;
+            }
+
+            first = first.next;
+        }
+
+        while (first.next != null) {
+            first = first.next;
+            second = second.next;
+        }
+
+        return second.data;
+    }
+
+    public static void question3() {
+
+    }
+
+    public static void question3_execution(final LinkedListNode middle) {
+        middle.data = middle.next.data;
+        middle.next = middle.next.next;
+    }
+
     public static class LinkedListNode {
         LinkedListNode next = null;
         int data;
